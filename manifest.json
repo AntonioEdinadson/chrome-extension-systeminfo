@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Multi: ChromeOS Information",
+  "author": "antonioedinadson",
+  "version": "1.0",
+  "action": {
+    "default_popup": "./popup.html",
+    "default_icon": "favicon.png"
+  },
+  "background": {
+    "service_worker": "./background.js"
+  },
+  "icons": {
+    "128": "favicon.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "js": [
+        "./assets/js/main.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "scripting",
+    "tabs",
+    "activeTab",
+    "system.storage",
+    "system.display",
+    "system.cpu",
+    "system.memory",
+    "enterprise.deviceAttributes"
+  ]
+}
