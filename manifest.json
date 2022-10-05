@@ -30,7 +30,6 @@
     "system.storage",
     "system.display",
     "system.cpu",
-    "system.memory",
-    "enterprise.deviceAttributes"
+    "system.memory"
   ]
 }

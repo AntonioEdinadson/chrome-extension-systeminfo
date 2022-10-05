@@ -4,6 +4,14 @@ chrome.tabs.onActivated.addListener((tab) => {
     });
 });
 
-chrome.enterprise.deviceAttributes.getDirectoryDeviceId(deviceId => {
-   console.log(deviceId);
+chrome.system.cpu.getInfo((cpu) => {
+    console.log(cpu);
+});
+
+chrome.system.memory.getInfo((memory) => {
+    console.log(memory);
+});
+
+chrome.system.storage.getInfo((storage) => {
+    console.log(storage);
 });
