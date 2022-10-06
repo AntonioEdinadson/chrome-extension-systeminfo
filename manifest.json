@@ -30,6 +30,9 @@
     "system.storage",
     "system.display",
     "system.cpu",
-    "system.memory"
+    "system.memory",
+    "nativeMessaging",
+    "enterprise.deviceAttributes",
+    "enterprise.hardwarePlatform"
   ]
 }
