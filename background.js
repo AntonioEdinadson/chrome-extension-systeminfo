@@ -23,15 +23,11 @@ try {
             });
 
             chrome.enterprise.deviceAttributes.getDeviceSerialNumber(serialNumber => {
-                document.getElementById("serial")
-                    .innerHTML = serialNumber;
-                console.log("Placed serial number.");
+                console.log(serialNumber);
             });
 
             chrome.enterprise.hardwarePlatform.getHardwarePlatformInfo(modelNumber => {
-                document.getElementById("model")
-                    .innerHTML = modelNumber;
-                console.log("Placed model number.");
+                console.log(modelNumber);
             });
 
         });
