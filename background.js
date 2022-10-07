@@ -2,34 +2,29 @@ try {
 
     window.onload = () => {
         document.querySelector("#btn").addEventListener('click', (e) => {
-
             chrome.system.memory.getInfo((memory) => {
-                const totalMemory = Math.ceil((memory.capacity / (1024 * 1024)) / 1024)
-                document.querySelector("#memory span").innerHTML = `${totalMemory}GB`;
+                const totalMemory = Math.ceil((memory.capacity / (1024 * 1024)) / 1024);
+                document.querySelector("#memory span").innerText = `${totalMemory}GB`;
+                console.log(totalMemory);
             });
 
             chrome.system.cpu.getInfo((cpu) => {
-                document.querySelector("#cpu span").innerHTML = cpu.modelName;
+                console.log(cpu.modelName);
+                document.querySelector("#cpu span").innerText = cpu.modelName;
             });
 
             chrome.system.storage.getInfo((storage) => {
                 let totalStorage = 0;
                 storage.forEach(element => {
-                    if (element.type === 'fixed') {
-                        totalStorage += Math.ceil(element.capacity / (1024 * 1024) / 1024);
-                    }
+                    totalStorage += Math.ceil(element.capacity / (1024 * 1024) / 1024);
+                    console.log(element);
                 });
-                document.querySelector("#storage span").innerHTML = `${totalStorage}GB`;
+                document.querySelector("#storage span").innerText = `${totalStorage}GB`;
             });
 
-            chrome.enterprise.deviceAttributes.getDeviceSerialNumber(serialNumber => {
-                console.log(serialNumber);
+            chrome.enterprise.deviceAttributes.getDeviceSerialNumber((serial) => {
+                console.log(serial);
             });
-
-            chrome.enterprise.hardwarePlatform.getHardwarePlatformInfo(modelNumber => {
-                console.log(modelNumber);
-            });
-
         });
     }
 
